@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Found Item - Lost & Found Items Portal</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f1f1f; /* Darker header */
+            color: #00bcd4;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fixed Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+        }
+
+        nav {
+            background: #333; /* Dark nav */
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: #e0e0e0; /* Light text */
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 0 15px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #00bcd4;
+            border-radius: 5px;
+        }
+
+        /* Main content container starts below the fixed nav */
+        .container {
+            max-width: 1200px;
+            margin: 240px auto;
+            background: #1e1e1e; /* Dark background for content */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding-top: 90px; /* Added padding to start below fixed nav */
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #00bcd4; /* Bright accent for heading */
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #2c2c2c; /* Dark background for input fields */
+            color: #e0e0e0; /* Light text */
+        }
+
+        button {
+            background: #00bcd4;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background: #1f1f1f; /* Dark footer */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            margin-top: 50px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin-top: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            input, textarea, button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <header>Lost & Found Items Portal</header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="reportLost.html">Report Lost Item</a>
+            <a href="reportFound.html">Report Found Item</a>
+            <a href="browse.html">Browse Items</a>
+            <a href="success.html">Success Stories</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <h2>Report a Found Item</h2>
+        <p>If you've found an item, provide details so the rightful owner can claim it.</p>
+        <input type="text" id="foundName" placeholder="Item Name">
+        <textarea id="foundDesc" placeholder="Detailed Description"></textarea>
+        <input type="text" id="foundLocation" placeholder="Found Location">
+        <button onclick="addItem('found')">Submit</button>
+    </div>
+    
+    <footer>
+        &copy; 2025 Lost & Found Portal. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Function to add found item details to localStorage
+        function addItem(type) {
+            // Get the values from the form
+            const name = document.getElementById(`${type}Name`).value;
+            const description = document.getElementById(`${type}Desc`).value;
+            const location = document.getElementById(`${type}Location`).value;
+
+            if (name && description && location) {
+                // Get current date
+                const date = new Date().toLocaleDateString();
+
+                // Create item object
+                const item = {
+                    name: name,
+                    description: description,
+                    location: location,
+                    date: date
+                };
+
+                // Retrieve the existing items from localStorage
+                let items = JSON.parse(localStorage.getItem(`${type}Items`)) || [];
+
+                // Add the new item to the list
+                items.push(item);
+
+                // Save the updated list back to localStorage
+                localStorage.setItem(`${type}Items`, JSON.stringify(items));
+
+                // Clear the form fields
+                document.getElementById(`${type}Name`).value = '';
+                document.getElementById(`${type}Desc`).value = '';
+                document.getElementById(`${type}Location`).value = '';
+
+                alert('Your found item has been reported successfully!');
+            } else {
+                alert('Please fill out all fields.');
+            }
+        }
+    </script>
+</body>
+</html>

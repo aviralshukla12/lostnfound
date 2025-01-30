@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Lost & Found Items Portal</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f1f1f; /* Dark header background */
+            color: #00bcd4; /* Neon cyan text */
+            padding: 25px 0;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+        }
+
+        nav {
+            background: #333;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 0 15px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #00bcd4; /* Neon cyan hover effect */
+            border-radius: 5px;
+            color: #121212;
+        }
+
+        /* Main content container */
+        .container {
+            max-width: 1200px;
+            margin: 240px auto 40px;
+            background: #1f1f1f; /* Dark background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #00bcd4; /* Neon cyan text */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: #e0e0e0; /* Light text */
+        }
+
+        .contact-info {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: #aaa;
+        }
+
+        .contact-info a {
+            color: #00bcd4; /* Neon cyan link color */
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: #333; /* Dark background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 188, 212, 0.5); /* Neon cyan glow */
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-size: 1.1em;
+            color: #e0e0e0; /* Light text color */
+            background: #222; /* Dark input background */
+        }
+
+        .contact-form button {
+            background: #00bcd4; /* Neon cyan */
+            color: #121212; /* Dark text */
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #007b9e; /* Darker cyan on hover */
+        }
+
+        footer {
+            background: #1f1f1f; /* Dark footer */
+            color: #e0e0e0; /* Light text color */
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            margin-top: 50px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin-top: 5px;
+        }
+
+        /* Neon Glow Effect */
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form button:hover {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.8); /* Neon cyan glow */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .contact-form input, .contact-form textarea {
+                font-size: 1em;
+            }
+
+            .contact-form button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <header>Lost & Found Items Portal</header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="reportLost.html">Report Lost Item</a>
+            <a href="reportFound.html">Report Found Item</a>
+            <a href="browse.html">Browse Items</a>
+            <a href="success.html">Success Stories</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>We are here to assist you! Whether you need help reporting a lost item, have questions about our platform, or simply want to share your feedback, feel free to reach out to us.</p>
+
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:support@lostfoundportal.com">support@lostfoundportal.com</a></p>
+            <p><strong>Phone:</strong> +1 (234) 567-890</p>
+            <p><strong>Address:</strong> 123 Lost & Found Street, Cityville</p>
+        </div>
+
+        <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form action="#" method="POST">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Lost & Found Portal. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

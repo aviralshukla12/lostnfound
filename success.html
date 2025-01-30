@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - Lost & Found Items Portal</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f1f1f; /* Dark header */
+            color: #00bcd4;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+        }
+
+        nav {
+            background: #333; /* Dark nav */
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: #e0e0e0; /* Light text */
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 0 15px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #00bcd4;
+            border-radius: 5px;
+        }
+
+        /* Main content container starts below the fixed nav */
+        .container {
+            max-width: 1200px;
+            margin: 240px auto 40px;
+            background: #1e1e1e; /* Dark background for content */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #00bcd4; /* Bright accent for heading */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .story {
+            background: #2c2c2c; /* Dark background for stories */
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .story:hover {
+            transform: translateY(-10px);
+            background: #00bcd4; /* Blue background on hover */
+            color: white; /* Light text */
+        }
+
+        .story h3 {
+            font-size: 1.8em;
+            color: #e0e0e0; /* Light heading text */
+            margin-bottom: 10px;
+        }
+
+        .story p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #e0e0e0; /* Light text */
+        }
+
+        footer {
+            background: #1f1f1f; /* Dark footer */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            margin-top: 50px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin-top: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .story {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <header>Lost & Found Items Portal</header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="reportLost.html">Report Lost Item</a>
+            <a href="reportFound.html">Report Found Item</a>
+            <a href="browse.html">Browse Items</a>
+            <a href="success.html">Success Stories</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <h2>Success Stories</h2>
+        <p>At the Lost & Found Items Portal, we pride ourselves on helping people reunite with their lost belongings. Here are some of the amazing stories of individuals who have successfully found their lost items through our platform:</p>
+        
+        <div class="story">
+            <h3>"A Wallet Found in Just 24 Hours"</h3>
+            <p>"I was devastated when I realized I had lost my wallet during my commute. I reported it on the Lost & Found Items Portal, and within just 24 hours, I received a notification that my wallet was found! The system connected me with the person who found it, and we were able to meet up and get it back. Thanks to this portal, I got my wallet and all my cards back safe!" – John Doe</p>
+        </div>
+
+        <div class="story">
+            <h3>"A Laptop Returned Against All Odds"</h3>
+            <p>"I accidentally left my laptop in a café and thought I had lost it for good. After filing a report on the portal, I received an email the next day from a kind soul who had found it. We exchanged details through the platform, and the laptop was safely returned. The process was seamless, and the peace of mind I got from knowing my device was safe was priceless!" – Jane Smith</p>
+        </div>
+
+        <div class="story">
+            <h3>"A Family Heirloom Reunited"</h3>
+            <p>"I was heartbroken when my grandmother's heirloom necklace went missing during a family vacation. After weeks of searching with no luck, I decided to try the Lost & Found portal. To my surprise, someone had found it and reported it through the site. The portal allowed us to communicate, and within a week, the necklace was back with me. I am forever grateful for this incredible service!" – Emily Johnson</p>
+        </div>
+
+        <div class="story">
+            <h3>"A Lost Phone Recovered with Ease"</h3>
+            <p>"After losing my phone at the airport, I thought it was gone forever. I quickly reported it on the platform, and within two days, I was notified that someone had found it! The user had safely handed it over to the lost and found department, and I was able to pick it up. The process was so simple, and I highly recommend the Lost & Found Items Portal to everyone!" – Michael Lee</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Lost & Found Portal. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

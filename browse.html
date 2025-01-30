@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Items - Lost & Found Items Portal</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f1f1f; /* Darker header */
+            color: #00bcd4;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fixed Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+        }
+
+        nav {
+            background: #333; /* Darker nav */
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: #e0e0e0; /* Light text */
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 0 15px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #00bcd4;
+            border-radius: 5px;
+        }
+
+        /* Main content container starts below the fixed nav */
+        .container {
+            max-width: 1200px;
+            margin: 240px auto;
+            background: #1e1e1e; /* Dark background for content */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding-top: 90px; /* Added padding to start below fixed nav */
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #00bcd4; /* Bright accent for heading */
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .item-list {
+            margin-top: 30px;
+        }
+
+        .item {
+            background: #2c2c2c; /* Dark card background */
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+            background: #444444; /* Slightly lighter on hover */
+            color: white;
+        }
+
+        .item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #ffffff; /* White text for item name */
+        }
+
+        .item p {
+            font-size: 1em;
+            color: #e0e0e0; /* Light text */
+        }
+
+        footer {
+            background: #1f1f1f; /* Dark footer */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            margin-top: 50px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin-top: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .item {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <header>Lost & Found Items Portal</header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="reportLost.html">Report Lost Item</a>
+            <a href="reportFound.html">Report Found Item</a>
+            <a href="browse.html">Browse Items</a>
+            <a href="success.html">Success Stories</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <h2>Browse Lost & Found Items</h2>
+        <p>View reported lost and found items. If you see something familiar, reach out to the owner.</p>
+        
+        <!-- Container to display the items dynamically -->
+        <div class="item-list" id="itemList"></div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Lost & Found Portal. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Function to display items from localStorage
+        function displayItems() {
+            const itemList = document.getElementById('itemList');
+            itemList.innerHTML = '';  // Clear existing items
+            
+            // Retrieve lost and found items from localStorage
+            const lostItems = JSON.parse(localStorage.getItem('lostItems')) || [];
+            const foundItems = JSON.parse(localStorage.getItem('foundItems')) || [];
+            
+            // Combine the two arrays (lost and found items)
+            const allItems = [...lostItems, ...foundItems];
+            
+            if (allItems.length === 0) {
+                itemList.innerHTML = '<p>No items found. Please report lost or found items.</p>';
+            } else {
+                allItems.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('item');
+                    itemDiv.innerHTML = `
+                        <h3>${item.name}</h3>
+                        <p><strong>Description:</strong> ${item.description}</p>
+                        <p><strong>Location:</strong> ${item.location}</p>
+                        <p><strong>Date Reported:</strong> ${item.date}</p>
+                    `;
+                    itemList.appendChild(itemDiv);
+                });
+            }
+        }
+
+        // Call displayItems on page load to show stored items
+        window.onload = displayItems;
+    </script>
+</body>
+</html>
