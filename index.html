@@ -167,6 +167,18 @@
         footer p {
             margin-top: 5px;
         }
+        .hero-image {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            overflow: hidden; /* Prevents image overflow */
+            margin-bottom: 30px; /* Adds space below the image */
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers the entire container */
+        }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
@@ -209,6 +221,9 @@
     </div>
     
     <div class="container">
+        <div class="hero-image">
+            <img src="https://picsum.photos/200/300" alt="Lost and Found Items"> 
+            </div>
         <h2>Welcome to the Lost & Found Portal</h2>
         <p>Our platform is dedicated to helping individuals reconnect with their lost items in a seamless, reliable, and user-friendly environment. Whether you’ve lost something valuable or found an item, our goal is to make the process of reclaiming or returning belongings as straightforward as possible.</p>
 
